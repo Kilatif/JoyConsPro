@@ -6,31 +6,95 @@
         xmlns:local="clr-namespace:JoyConsPro"
         xmlns:controls="clr-namespace:JoyConsPro.Src.Views"
         mc:Ignorable="d"
-        Title="[Joy-Cons] Pro" Height="370.868" Width="769.492" Background="#FFDADADA">
+        Title="[Joy-Cons] Pro" Height="309" Width="645" Background="#FFDADADA" WindowStartupLocation="Manual" ResizeMode="NoResize">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="18*"/>
-            <RowDefinition Height="67*"/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="163*"/>
-            <ColumnDefinition Width="468*"/>
-            <ColumnDefinition Width="130*"/>
+            <ColumnDefinition Width="Auto" MinWidth="246"/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Border BorderBrush="Black" BorderThickness="1" Margin="5,26,5,211" Grid.RowSpan="2"/>
-        <controls:ControllersStatusView x:Name="StatusView" Grid.Column="1" Grid.RowSpan="2"/>
-        <Label x:Name="label" Content="Left Joy-Con name" HorizontalAlignment="Left" Margin="25,0,0,0" VerticalAlignment="Top"/>
-        <Slider x:Name="slider" HorizontalAlignment="Left" Margin="74,27,0,0" VerticalAlignment="Top" Width="84" Maximum="4" SmallChange="1" Value="-1" Foreground="Black" Height="30" RenderTransformOrigin="0.08,0.517" TickPlacement="BottomRight" Grid.Row="1"/>
-        <Label x:Name="label1" Content="Sensitivity :" HorizontalAlignment="Left" Margin="5,22,0,0" VerticalAlignment="Top" Grid.Row="1"/>
-        <CheckBox x:Name="checkBox" Content="Main" HorizontalAlignment="Left" Margin="10,34,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="comboBox" Margin="10,0" VerticalAlignment="Top" Grid.Row="1">
-            <ComboBoxItem Content="Default" IsSelected="True"/>
-            <ComboBoxItem Content="Sensitivity +/-"/>
-            <ComboBoxItem Content="Sensitivity -/+"/>
-            <ComboBoxItem Content="Sensitivity value"/>
-        </ComboBox>
-        <Label x:Name="label1_Copy" Content="SL/SR bind :" HorizontalAlignment="Left" Margin="5,49,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.253,0.379" Height="24" Grid.RowSpan="2"/>
-        <Label x:Name="label1_Copy1" Content="Battery :" HorizontalAlignment="Left" Margin="83,28,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label1_Copy2" Content="full" HorizontalAlignment="Left" Margin="132,28,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label" Grid.Column="0" Content="Left :" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,0,0,0"/>
+        <Border BorderBrush="Black" Grid.Column="0" BorderThickness="1" Margin="10,26,11,0" Height="109" VerticalAlignment="Top">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Label x:Name="label1_Copy1" Content="Battery :" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="0" Margin="5,5,0,0"/>
+                <Label x:Name="label1_Copy2" Content="full" HorizontalAlignment="Left" Margin="53,5,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.231,0.615" Padding="0"/>
+                <Label x:Name="label1_Copy" Content="SL/SR bind :" HorizontalAlignment="Left" Margin="5,31,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.253,0.379" Padding="0"/>
+                <ComboBox x:Name="comboBox" Margin="73,28,8,0" VerticalAlignment="Top" Height="22">
+                    <ComboBoxItem Content="Default" IsSelected="True"/>
+                    <ComboBoxItem Content="Sensitivity +/-"/>
+                    <ComboBoxItem Content="Sensitivity -/+"/>
+                    <ComboBoxItem Content="Sensitivity value"/>
+                </ComboBox>
+                <Label x:Name="label2" Content="SL value :" HorizontalAlignment="Left" Margin="5,58,0,0" VerticalAlignment="Top" Padding="0" Grid.IsSharedSizeScope="True"/>
+                <ComboBox x:Name="comboBox1_Copy" HorizontalAlignment="Left" Margin="73,55,0,0" VerticalAlignment="Top" Width="35" Height="22">
+                    <ComboBoxItem Content="1" IsSelected="True"/>
+                    <ComboBoxItem Content="2" />
+                    <ComboBoxItem Content="3" />
+                    <ComboBoxItem Content="4" />
+                </ComboBox>
+                <Label x:Name="label2_Copy" Content="SR value :" HorizontalAlignment="Left" Margin="5,80,0,11" Padding="0" Grid.IsSharedSizeScope="True"/>
+                <ComboBox x:Name="comboBox1_Copy1" HorizontalAlignment="Left" Margin="73,77,0,8" Width="35" Padding="6,3,5,5">
+                    <ComboBoxItem Content="1" IsSelected="True"/>
+                    <ComboBoxItem Content="2" />
+                    <ComboBoxItem Content="3" />
+                    <ComboBoxItem Content="4" />
+                </ComboBox>
+                <CheckBox x:Name="checkBox1" Content="Hold to enable" HorizontalAlignment="Left" Margin="113,59,0,0" VerticalAlignment="Top"/>
+                <CheckBox x:Name="checkBox1_Copy" Content="Hold to enable" HorizontalAlignment="Left" Margin="113,81,0,11"/>
+                <Label x:Name="label1" Content="Gyro sens level :" HorizontalAlignment="Left" Margin="86,5,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.348,0.154" Padding="0"/>
+                <ComboBox x:Name="comboBox1" Margin="178,2,8,0" VerticalAlignment="Top" Height="22">
+                    <ComboBoxItem Content="1" IsSelected="True"/>
+                    <ComboBoxItem Content="2" />
+                    <ComboBoxItem Content="3" />
+                    <ComboBoxItem Content="4" />
+                </ComboBox>
+            </Grid>
+        </Border>
+        <Label x:Name="label222" Grid.Column="0" Content="Right : " VerticalAlignment="Top" Margin="10,135,0,0" HorizontalAlignment="Left"/>
+        <Border BorderBrush="Black" Grid.Column="0" BorderThickness="1" Margin="10,161,11,0" Height="109" VerticalAlignment="Top">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Label x:Name="label1_Copy12" Content="Battery :" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="0" Margin="5,5,0,0"/>
+                <Label x:Name="label1_Copy22" Content="full" HorizontalAlignment="Left" Margin="53,5,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.231,0.615" Padding="0"/>
+                <Label x:Name="label1_Copy222" Content="SL/SR bind :" HorizontalAlignment="Left" Margin="5,31,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.253,0.379" Padding="0"/>
+                <ComboBox x:Name="comboBox2" Margin="73,28,8,0" VerticalAlignment="Top" Height="22">
+                    <ComboBoxItem Content="Default" IsSelected="True"/>
+                    <ComboBoxItem Content="Sensitivity +/-"/>
+                    <ComboBoxItem Content="Sensitivity -/+"/>
+                    <ComboBoxItem Content="Sensitivity value"/>
+                </ComboBox>
+                <Label x:Name="label22" Content="SL value :" HorizontalAlignment="Left" Margin="5,58,0,0" VerticalAlignment="Top" Padding="0" Grid.IsSharedSizeScope="True"/>
+                <ComboBox x:Name="comboBox1_Copy2" HorizontalAlignment="Left" Margin="73,55,0,0" VerticalAlignment="Top" Width="35" Height="22">
+                    <ComboBoxItem Content="1" IsSelected="True"/>
+                    <ComboBoxItem Content="2" />
+                    <ComboBoxItem Content="3" />
+                    <ComboBoxItem Content="4" />
+                </ComboBox>
+                <Label x:Name="label2_Copy2" Content="SR value :" HorizontalAlignment="Left" Margin="5,80,0,11" Padding="0" Grid.IsSharedSizeScope="True"/>
+                <ComboBox x:Name="comboBox1_Copy12" HorizontalAlignment="Left" Margin="73,77,0,8" Width="35" Padding="6,3,5,5">
+                    <ComboBoxItem Content="1" IsSelected="True"/>
+                    <ComboBoxItem Content="2" />
+                    <ComboBoxItem Content="3" />
+                    <ComboBoxItem Content="4" />
+                </ComboBox>
+                <CheckBox x:Name="checkBox12" Content="Hold to enable" HorizontalAlignment="Left" Margin="113,59,0,0" VerticalAlignment="Top"/>
+                <CheckBox x:Name="checkBox1_Copy2" Content="Hold to enable" HorizontalAlignment="Left" Margin="113,81,0,11"/>
+                <Label x:Name="label12" Content="Gyro sens level :" HorizontalAlignment="Left" Margin="86,5,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.348,0.154" Padding="0"/>
+                <ComboBox x:Name="comboBox12" Margin="178,2,8,0" VerticalAlignment="Top" Height="22">
+                    <ComboBoxItem Content="1" IsSelected="True"/>
+                    <ComboBoxItem Content="2" />
+                    <ComboBoxItem Content="3" />
+                    <ComboBoxItem Content="4" />
+                </ComboBox>
+            </Grid>
+        </Border>
+        <controls:ControllersStatusView x:Name="StatusView" Grid.Column="1" Height="289" VerticalAlignment="Top"/>
     </Grid>
 </Window>

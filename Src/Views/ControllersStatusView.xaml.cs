@@ -33,8 +33,8 @@ namespace JoyConsPro.Src.Views
         private static readonly Color ProDisconnectedColor = Color.FromRgb(255, 100, 100);
         private static readonly Color ConnectedColor = Color.FromRgb(50, 150, 0);
 
-        public bool IsProConnected { set => ProBody.Stroke = new SolidColorBrush(value ? ConnectedColor : ProDisconnectedColor); }
-        public JoyConStatus LeftJoyConStatus
+        //public bool IsProConnected { set => ProBody.Stroke = new SolidColorBrush(value ? ConnectedColor : ProDisconnectedColor); }
+        /*public JoyConStatus LeftJoyConStatus
         {
             set
             {
@@ -70,7 +70,7 @@ namespace JoyConsPro.Src.Views
                         break;
                 }
             }
-        }
+        }*/
 
         public ControllersStatusView()
         {
