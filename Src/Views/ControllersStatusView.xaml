@@ -39,26 +39,15 @@
             </Canvas>
             <Canvas Name="JoyCons">
                 <Canvas Name="JoyConLeft" Background="Black">
-                    <Path Name="JoyConLeftBody" Fill="#FFD4D4D4" StrokeThickness="3">
-                        <Path.Stroke>
-                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                <LinearGradientBrush.RelativeTransform>
-                                    <TransformGroup>
-                                        <ScaleTransform CenterY="0.5" CenterX="0.5"/>
-                                        <SkewTransform CenterY="0.5" CenterX="0.5"/>
-                                        <RotateTransform Angle="90" CenterY="0.5" CenterX="0.5"/>
-                                        <TranslateTransform/>
-                                    </TransformGroup>
-                                </LinearGradientBrush.RelativeTransform>
-                                <GradientStop Color="#FF7A7A7A"/>
-                                <GradientStop Color="Red" Offset="1"/>
-                            </LinearGradientBrush>
-                        </Path.Stroke>
+                    <Path Name="JoyConLeftBody" Fill="#FF7A7A7A" StrokeThickness="2" Stroke="Black">
+                        <Path.Effect>
+                            <DropShadowEffect Direction="180" Color="#FFEC0000" BlurRadius="10"/>
+                        </Path.Effect>
                         <Path.Data>
                             <PathGeometry Figures="M108.096 226.592h36.269V9.41h-36.269    c-24.991 0-45.25 20.259-45.25 45.25v126.683C62.846 206.333 83.105 226.592 108.096 226.592" FillRule="NonZero"/>
                         </Path.Data>
                     </Path>
-                    <Path Name="JoyConLeftButtons" Fill="#FF7A7A7A" Stroke="#FF000000">
+                    <Path Name="JoyConLeftButtons" Fill="#FF3B3B3C" Stroke="Black">
                         <Path.Data>
                             <GeometryGroup>
                                 <RectangleGeometry Rect="94,30 36,12" />
@@ -72,29 +61,18 @@
                     </Path>
                 </Canvas>
                 <Canvas Name="JoyConRight">
-                    <Path Name="JoyConRightBody" StrokeThickness="3">
-                        <Path.Stroke>
-                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                <LinearGradientBrush.RelativeTransform>
-                                    <TransformGroup>
-                                        <ScaleTransform CenterY="0.5" CenterX="0.5"/>
-                                        <SkewTransform CenterY="0.5" CenterX="0.5"/>
-                                        <RotateTransform Angle="90" CenterY="0.5" CenterX="0.5"/>
-                                        <TranslateTransform/>
-                                    </TransformGroup>
-                                </LinearGradientBrush.RelativeTransform>
-                                <GradientStop Color="#FF329600"/>
-                                <GradientStop Color="#FF7A7A7A" Offset="1"/>
-                            </LinearGradientBrush>
-                        </Path.Stroke>
+                    <Path Name="JoyConRightBody" StrokeThickness="2" Stroke="Black">
+                        <Path.Effect>
+                            <DropShadowEffect Direction="0" Color="#FFE00000" BlurRadius="10"/>
+                        </Path.Effect>
                         <Path.Fill>
-                            <SolidColorBrush Color="#FFD4D4D4"/>
+                            <SolidColorBrush Color="#FF7A7A7A"/>
                         </Path.Fill>
                         <Path.Data>
                             <PathGeometry Figures="M243.112 227.025h-36.269V9.842h36.269    c24.99 0 45.25 20.259 45.25 45.25v126.683C288.362 206.766 268.102 227.025 243.112 227.025" FillRule="NonZero"/>
                         </Path.Data>
                     </Path>
-                    <Path Name="JoyConRightButtons" Fill="#FF7A7A7A" Stroke="Black">
+                    <Path Name="JoyConRightButtons" Fill="#FF3B3B3C" Stroke="Black">
                         <Path.Data>
                             <GeometryGroup>
                                 <PathGeometry Figures="M 254.266,28.972 L 242.266,28.972 242.266,16.972 242.266,16.972 231.226,16.972 231.226,28.972 219.226,28.972 219.226,40.492 231.226,40.492 231.226,52.492 242.266,52.492 242.266,40.492 254.266,40.492 Z" />

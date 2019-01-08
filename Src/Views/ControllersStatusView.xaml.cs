@@ -9,6 +9,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Effects;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -28,7 +29,6 @@ namespace JoyConsPro.Src.Views
     public partial class ControllersStatusView : UserControl
     {
         private const double UnlinkedOpacity = 0.25;
-        private static readonly Color JoyConGrey = Color.FromRgb(122, 122, 122);
         private static readonly Color JoyConDisconnected = Colors.Red;
         private static readonly Color ProDisconnectedColor = Color.FromRgb(255, 100, 100);
         private static readonly Color ConnectedColor = Color.FromRgb(50, 150, 0);
@@ -38,17 +38,16 @@ namespace JoyConsPro.Src.Views
         {
             set
             {
+                var effect = ((DropShadowEffect)JoyConLeftBody.Effect);
+                effect.Opacity = value == JoyConStatus.Unlinked ? 0.0 : 1.0;
                 JoyConLeft.Opacity = value == JoyConStatus.Unlinked ? UnlinkedOpacity : 1.0;
                 switch (value)
                 {
-                    case JoyConStatus.Unlinked:
-                        JoyConLeftBody.Stroke = new SolidColorBrush(JoyConGrey);
-                        break;
                     case JoyConStatus.Connected:
-                        JoyConLeftBody.Stroke = new LinearGradientBrush(ConnectedColor, JoyConGrey, 0);
+                        effect.Color = ConnectedColor;
                         break;
                     case JoyConStatus.Disconnected:
-                        JoyConLeftBody.Stroke = new LinearGradientBrush(JoyConDisconnected, JoyConGrey, 0);
+                        effect.Color = JoyConDisconnected;
                         break;
                 }
             }
@@ -58,17 +57,16 @@ namespace JoyConsPro.Src.Views
         {
             set
             {
+                var effect = ((DropShadowEffect)JoyConRightBody.Effect);
+                effect.Opacity = value == JoyConStatus.Unlinked ? 0.0 : 1.0;
                 JoyConRight.Opacity = value == JoyConStatus.Unlinked ? UnlinkedOpacity : 1.0;
                 switch (value)
                 {
-                    case JoyConStatus.Unlinked:
-                        JoyConRightBody.Stroke = new SolidColorBrush(JoyConGrey);
-                        break;
                     case JoyConStatus.Connected:
-                        JoyConRightBody.Stroke = new LinearGradientBrush(JoyConGrey, ConnectedColor, 0);
+                        effect.Color = ConnectedColor;
                         break;
                     case JoyConStatus.Disconnected:
-                        JoyConRightBody.Stroke = new LinearGradientBrush(JoyConGrey, JoyConDisconnected, 0);
+                        effect.Color = JoyConDisconnected;
                         break;
                 }
             }
