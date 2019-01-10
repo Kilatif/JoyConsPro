@@ -7,7 +7,7 @@
              mc:Ignorable="d">
     <Grid>
         <Label x:Name="LabelType" Grid.Column="0" Content="Right : " VerticalAlignment="Top" HorizontalAlignment="Left"/>
-        <Label x:Name="LabelName" Grid.Column="0" Content="Name" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="47,0,0,0" Width="175"/>
+        <TextBox x:Name="TextBoxName" TextWrapping="Wrap" Text="Name" Background="{x:Null}" BorderBrush="{x:Null}" Margin="47,4,10,0" Height="18" VerticalAlignment="Top" MouseDoubleClick="TextBoxName_MouseDoubleClick" LostFocus="TextBoxName_LostFocus" KeyDown="TextBoxName_KeyDown"/>
         <Border BorderBrush="Black" Grid.Column="0" BorderThickness="1" Margin="0,26,0,0">
             <Grid>
                 <Label Content="Battery :" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="0" Margin="5,5,0,0"/>

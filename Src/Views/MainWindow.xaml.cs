@@ -27,5 +27,11 @@ namespace JoyConsPro.Views
             //StatusView.RightJoyConStatus = JoyConStatus.Connected;
             //StatusView.IsProConnected = true;
         }
+
+        private void MenuItemFind_Click(object sender, RoutedEventArgs e)
+        {
+            //StatusView.IsProConnected = true;
+            //StatusView.IsProConnected = false;
+        }
     }
 }

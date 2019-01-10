@@ -9,7 +9,7 @@
         Title="[Joy-Cons] Pro" Height="338" Width="645" Background="#FFDADADA" WindowStartupLocation="Manual" ResizeMode="NoResize">
     <Grid>
         <Menu x:Name="Menu" HorizontalAlignment="Left" Height="21" VerticalAlignment="Top" Width="639">
-            <MenuItem x:Name="MenuItemFind" Header="Find controllers" Height="21"/>
+            <MenuItem x:Name="MenuItemFind" Header="Find controllers" Height="21" Click="MenuItemFind_Click"/>
             <MenuItem x:Name="MenuItemHelp" Header="Help" Height="21"/>
         </Menu>
         <Grid Margin="0,21,0,0">

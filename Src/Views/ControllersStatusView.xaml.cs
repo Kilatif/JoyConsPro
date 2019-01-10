@@ -28,63 +28,91 @@ namespace JoyConsPro.Src.Views
     /// </summary>
     public partial class ControllersStatusView : UserControl
     {
-        private const double UnlinkedOpacity = 0.25;
-        private static readonly Color JoyConDisconnected = Colors.Red;
-        private static readonly Color ProDisconnectedColor = Color.FromRgb(255, 100, 100);
-        private static readonly Color ConnectedColor = Color.FromRgb(50, 150, 0);
+        public const double UnlinkedOpacity = 0.25;
+        public static readonly Color JoyConDisconnected = Colors.Red;
+        public static readonly Color ProDisconnectedColor = Color.FromRgb(255, 100, 100);
+        public static readonly Color ConnectedColor = Color.FromRgb(50, 150, 0);
 
-        //public bool IsProConnected { set => ProBody.Stroke = new SolidColorBrush(value ? ConnectedColor : ProDisconnectedColor); }
-        /*public JoyConStatus LeftJoyConStatus
+        private bool _isProConnected;
+        private JoyConStatus _leftJoyConStatus;
+        private JoyConStatus _rightJoyConStatus;
+
+        public bool IsProConnected
         {
+            get => _isProConnected;
             set
             {
-                var effect = ((DropShadowEffect)JoyConLeftBody.Effect);
-                effect.Opacity = value == JoyConStatus.Unlinked ? 0.0 : 1.0;
-                JoyConLeft.Opacity = value == JoyConStatus.Unlinked ? UnlinkedOpacity : 1.0;
-                switch (value)
-                {
-                    case JoyConStatus.Connected:
-                        effect.Color = ConnectedColor;
-                        break;
-                    case JoyConStatus.Disconnected:
-                        effect.Color = JoyConDisconnected;
-                        break;
-                }
+                _isProConnected = value;
+                IsProConnectedChanged(value);
             }
         }
-
-        public JoyConStatus RightJoyConStatus
+        public JoyConStatus LeftJoyConStatus
         {
+            get => _leftJoyConStatus;
             set
             {
-                var effect = ((DropShadowEffect)JoyConRightBody.Effect);
-                effect.Opacity = value == JoyConStatus.Unlinked ? 0.0 : 1.0;
-                JoyConRight.Opacity = value == JoyConStatus.Unlinked ? UnlinkedOpacity : 1.0;
-                switch (value)
-                {
-                    case JoyConStatus.Connected:
-                        effect.Color = ConnectedColor;
-                        break;
-                    case JoyConStatus.Disconnected:
-                        effect.Color = JoyConDisconnected;
-                        break;
-                }
+                _leftJoyConStatus = value; 
+                LeftJoyConStatusChanged(value);
             }
-        }*/
+        }
+        public JoyConStatus RightJoyConStatus
+        {
+            get => _rightJoyConStatus;
+            set
+            {
+                _rightJoyConStatus = value;
+                RightJoyConStatusChanged(value);
+            }
+        }
 
         public ControllersStatusView()
         {
             InitializeComponent();
+            Loaded += OnLoaded;
         }
 
-        /*public Color Test
+        private void OnLoaded(object sender, RoutedEventArgs e)
         {
-            get => (Color)GetValue(TestProperty);
-            set => SetValue(TestProperty, value);
+            IsProConnected = false;
+            LeftJoyConStatus = JoyConStatus.Unlinked;
+            RightJoyConStatus = JoyConStatus.Unlinked;
         }
 
-        // Using a DependencyProperty as the backing store for MyProperty.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty TestProperty =
-            DependencyProperty.Register("Test", typeof(Color), typeof(ControllersStatusView), new PropertyMetadata(Color.FromRgb(0, 0, 0)));*/
+        private void IsProConnectedChanged(bool value)
+        {
+            ProBody.Stroke = new SolidColorBrush(value ? ConnectedColor : ProDisconnectedColor);
+        }
+
+        private void LeftJoyConStatusChanged(JoyConStatus value)
+        {
+            var effect = ((DropShadowEffect)JoyConLeftBody.Effect);
+            effect.Opacity = value == JoyConStatus.Unlinked ? 0.0 : 1.0;
+            JoyConLeft.Opacity = value == JoyConStatus.Unlinked ? UnlinkedOpacity : 1.0;
+            switch (value)
+            {
+                case JoyConStatus.Connected:
+                    effect.Color = ConnectedColor;
+                    break;
+                case JoyConStatus.Disconnected:
+                    effect.Color = JoyConDisconnected;
+                    break;
+            }
+        }
+
+        private void RightJoyConStatusChanged(JoyConStatus value)
+        {
+            var effect = ((DropShadowEffect)JoyConRightBody.Effect);
+            effect.Opacity = value == JoyConStatus.Unlinked ? 0.0 : 1.0;
+            JoyConRight.Opacity = value == JoyConStatus.Unlinked ? UnlinkedOpacity : 1.0;
+            switch (value)
+            {
+                case JoyConStatus.Connected:
+                    effect.Color = ConnectedColor;
+                    break;
+                case JoyConStatus.Disconnected:
+                    effect.Color = JoyConDisconnected;
+                    break;
+            }
+        }
     }
 }
