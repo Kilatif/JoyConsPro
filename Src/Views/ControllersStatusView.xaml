@@ -1,14 +1,23 @@
-﻿<UserControl x:Class="JoyConsPro.Src.Views.ControllersStatusView"
+﻿<UserControl x:Class="JoyConsPro.Views.ControllersStatusView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:JoyConsPro.Src.Views"
-             mc:Ignorable="d">
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:view="clr-namespace:JoyConsPro.Views"
+             xmlns:conv="clr-namespace:JoyConsPro.Converters"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             mc:Ignorable="d"
+             DataContext="{Binding RelativeSource={RelativeSource Self}}"
+             d:DataContext="{d:DesignInstance Type=view:ControllersStatusView, IsDesignTimeCreatable=True}">
+    <UserControl.Resources>
+        <conv:ProBodyBrushConverter x:Key="ProBodyBrushConverter"/>
+        <conv:JoyConEffectConverter x:Key="JoyConEffectConverter"/>
+        <conv:JoyConOpacityConverter x:Key="JoyConOpacityConverter"/>
+    </UserControl.Resources>
     <Viewbox Stretch="Uniform">
         <Canvas Width="350" Height="240">
             <Canvas Name="Pro">
-                <Path Name="ProBody" Fill="#FFD4D4D4" StrokeThickness="5" Stroke="#FF329600">
+                <Path Name="ProBody" Fill="#FFD4D4D4" StrokeThickness="5" Stroke="{Binding IsProConnected, Converter={StaticResource ProBodyBrushConverter}}">
                     <Path.Data>
                         <PathGeometry Figures="M105.193 6.911   c-23.414 1.462-41.874 7.335-51.596 22.798c-2.441 3.884-6.162 6.039-7.679 9.599c-2.708 6.357-3.781 14.815-5.76 22.558   c-5.838 22.845-11.241 46.222-15.358 70.554c-2.677 15.818-6.856 33.039-6.24 50.876c0.599 17.305 6.892 34.199 19.199 38.397   c7.569 2.582 15.746 0.697 21.598-2.88c9.63-5.886 14.46-18.705 19.678-30.237c5.082-11.233 11.223-25.45 21.598-28.798   c8.913-2.876 24.502-0.96 36.478-0.96c24.614 0 49.333 0 75.354 0c11.793 0 28.217-2.181 37.437 0.48   c5.14 1.483 10.134 7.899 13.438 12.959c10.342 15.837 14.994 41.575 32.158 48.476c6.612 2.658 15.443 2.761 22.078-1.44   c18.102-11.461 15.147-47.102 11.039-72.474c-5.248-32.404-11.381-61.518-19.199-90.712c-1.627-6.075-2.77-12.721-4.799-17.279   c-1.406-3.156-4.092-3.436-7.199-7.679c-1.174-1.602-1.497-3.843-2.4-5.28c-4.161-6.618-14.228-12.583-23.998-15.358   c-8.3-2.358-23.488-4.968-31.678-3.84c-5.207 0.718-9.098 4.107-13.918 4.8c-14.761 2.122-32.824 0-50.396 0   c-17.76 0-36.882 2.104-50.396 0C117.23 10.319 112.205 6.512 105.193 6.911" FillRule="NonZero"/>
                     </Path.Data>
@@ -38,10 +47,12 @@
                 </Path>
             </Canvas>
             <Canvas Name="JoyCons">
-                <Canvas Name="JoyConLeft" Background="Black">
+                <Canvas Name="JoyConLeft" Opacity="{Binding LeftJoyConStatus, Converter={StaticResource JoyConOpacityConverter}}">
                     <Path Name="JoyConLeftBody" Fill="#FF7A7A7A" StrokeThickness="2" Stroke="Black">
                         <Path.Effect>
-                            <DropShadowEffect Direction="180" Color="#FFEC0000" BlurRadius="10"/>
+                            <DropShadowEffect Direction="180" BlurRadius="10" 
+                                              Color="{Binding LeftJoyConStatus, Converter={StaticResource JoyConEffectConverter}}"
+                                              Opacity="{Binding LeftJoyConStatus, Converter={StaticResource JoyConEffectConverter}}"/>
                         </Path.Effect>
                         <Path.Data>
                             <PathGeometry Figures="M108.096 226.592h36.269V9.41h-36.269    c-24.991 0-45.25 20.259-45.25 45.25v126.683C62.846 206.333 83.105 226.592 108.096 226.592" FillRule="NonZero"/>
@@ -60,14 +71,13 @@
                         </Path.Data>
                     </Path>
                 </Canvas>
-                <Canvas Name="JoyConRight">
-                    <Path Name="JoyConRightBody" StrokeThickness="2" Stroke="Black">
+                <Canvas Name="JoyConRight" Opacity="{Binding RightJoyConStatus, Converter={StaticResource JoyConOpacityConverter}}">
+                    <Path Name="JoyConRightBody" Fill="#FF7A7A7A" StrokeThickness="2" Stroke="Black">
                         <Path.Effect>
-                            <DropShadowEffect Direction="0" Color="#FFE00000" BlurRadius="10"/>
+                            <DropShadowEffect Direction="0" BlurRadius="10" 
+                                              Color="{Binding RightJoyConStatus, Converter={StaticResource JoyConEffectConverter}}"
+                                              Opacity="{Binding RightJoyConStatus, Converter={StaticResource JoyConEffectConverter}}"/>
                         </Path.Effect>
-                        <Path.Fill>
-                            <SolidColorBrush Color="#FF7A7A7A"/>
-                        </Path.Fill>
                         <Path.Data>
                             <PathGeometry Figures="M243.112 227.025h-36.269V9.842h36.269    c24.99 0 45.25 20.259 45.25 45.25v126.683C288.362 206.766 268.102 227.025 243.112 227.025" FillRule="NonZero"/>
                         </Path.Data>

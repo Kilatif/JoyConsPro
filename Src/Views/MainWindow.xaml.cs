@@ -1,6 +1,5 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
-using JoyConsPro.Src.Views;
 
 namespace JoyConsPro.Views
 {

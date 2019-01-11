@@ -74,6 +74,10 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Src\Converters\BaseConverter.cs" />
+    <Compile Include="Src\Converters\JoyConEffectConverter.cs" />
+    <Compile Include="Src\Converters\JoyConOpacityConverter.cs" />
+    <Compile Include="Src\Converters\ProBodyBrushConverter.cs" />
     <Compile Include="Src\Views\ControllersStatusView.xaml.cs">
       <DependentUpon>ControllersStatusView.xaml</DependentUpon>
     </Compile>
