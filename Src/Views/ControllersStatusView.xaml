@@ -13,6 +13,7 @@
         <conv:ProBodyBrushConverter x:Key="ProBodyBrushConverter"/>
         <conv:JoyConEffectConverter x:Key="JoyConEffectConverter"/>
         <conv:JoyConOpacityConverter x:Key="JoyConOpacityConverter"/>
+        <conv:JoyConBodyFillConverter x:Key="JoyConBodyFillConverter"/>
     </UserControl.Resources>
     <Viewbox Stretch="Uniform">
         <Canvas Width="350" Height="240">
@@ -48,7 +49,7 @@
             </Canvas>
             <Canvas Name="JoyCons">
                 <Canvas Name="JoyConLeft" Opacity="{Binding LeftJoyConStatus, Converter={StaticResource JoyConOpacityConverter}}">
-                    <Path Name="JoyConLeftBody" Fill="#FF7A7A7A" StrokeThickness="2" Stroke="Black">
+                    <Path Name="JoyConLeftBody" Fill="{Binding LeftJoyConColor, Converter={StaticResource JoyConBodyFillConverter}}" StrokeThickness="2" Stroke="Black">
                         <Path.Effect>
                             <DropShadowEffect Direction="180" BlurRadius="10" 
                                               Color="{Binding LeftJoyConStatus, Converter={StaticResource JoyConEffectConverter}}"
@@ -72,7 +73,16 @@
                     </Path>
                 </Canvas>
                 <Canvas Name="JoyConRight" Opacity="{Binding RightJoyConStatus, Converter={StaticResource JoyConOpacityConverter}}">
-                    <Path Name="JoyConRightBody" Fill="#FF7A7A7A" StrokeThickness="2" Stroke="Black">
+                    <Path Name="JoyConRightBody" Fill="{Binding RightJoyConColor, Converter={StaticResource JoyConBodyFillConverter}}" StrokeThickness="2" Stroke="Black">
+                        <Path.Style>
+                            <Style TargetType="Path">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding RightJoyConStatus}" Value="{x:Static view:JoyConStatus.Unlinked}">
+                                        <Setter Property="Fill" Value="#FAFAFA"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Path.Style>
                         <Path.Effect>
                             <DropShadowEffect Direction="0" BlurRadius="10" 
                                               Color="{Binding RightJoyConStatus, Converter={StaticResource JoyConEffectConverter}}"

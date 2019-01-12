@@ -17,6 +17,8 @@ namespace JoyConsPro.Views
     /// </summary>
     public partial class ControllersStatusView : UserControl
     {
+        private static readonly Color DefaultJoyConBodyColor = Color.FromRgb(122, 122, 122);
+
         public static readonly DependencyProperty IsProConnectedProperty = DependencyProperty.Register(
             "IsProConnected", typeof(bool), typeof(ControllersStatusView), new PropertyMetadata(default(bool)));
 
@@ -42,6 +44,24 @@ namespace JoyConsPro.Views
         {
             get => (JoyConStatus) GetValue(RightJoyConStatusProperty);
             set => SetValue(RightJoyConStatusProperty, value);
+        }
+
+        public static readonly DependencyProperty LeftJoyConColorProperty = DependencyProperty.Register(
+            "LeftJoyConColor", typeof(Color), typeof(ControllersStatusView), new PropertyMetadata(DefaultJoyConBodyColor));
+
+        public Color LeftJoyConColor
+        {
+            get => (Color) GetValue(LeftJoyConColorProperty);
+            set => SetValue(LeftJoyConColorProperty, value);
+        }
+
+        public static readonly DependencyProperty RightJoyConColorProperty = DependencyProperty.Register(
+            "RightJoyConColor", typeof(Color), typeof(ControllersStatusView), new PropertyMetadata(DefaultJoyConBodyColor));
+
+        public Color RightJoyConColor
+        {
+            get => (Color) GetValue(RightJoyConColorProperty);
+            set => SetValue(RightJoyConColorProperty, value);
         }
 
         public ControllersStatusView()
