@@ -38,20 +38,10 @@ namespace JoyConsPro.Converters
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if (targetType == typeof(TValue) &&
-                value is TProperty1 val &&
-                typeof(TProperty2) == typeof(object) &&
-                typeof(TProperty3) == typeof(object) &&
-                typeof(TProperty4) == typeof(object))
-            {
-                return ConvertBack(val);
-            }
-
             return DependencyProperty.UnsetValue;
         }
 
         protected abstract void FillConverter(TValue value);
-        protected abstract TValue ConvertBack(TProperty1 propValue);
     }
 
     public abstract class BaseConverter<TValue, TProperty> : IValueConverter

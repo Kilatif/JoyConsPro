@@ -1,17 +1,23 @@
 ﻿using System.Windows.Media;
+using JoyConsPro.Views;
 
 namespace JoyConsPro.Converters
 {
-    class JoyConBodyFillConverter : BaseConverter<Color, Brush>
+    class JoyConBodyFillConverter : BaseMultiValueConverter<Brush, Color, JoyConStatus>
     {
-        protected override Brush Convert(Color value)
+        private static readonly Color DefaultColor = Color.FromRgb(122, 122, 122);
+
+        public override Brush Convert(Color color, JoyConStatus status)
         {
-            return new SolidColorBrush(value);
+            return status == JoyConStatus.Unlinked
+                ? new SolidColorBrush(DefaultColor)
+                : new SolidColorBrush(color);
         }
 
-        protected override Color ConvertBack(Brush propertyValue)
+        public override void BackConvert(Brush property, out Color color, out JoyConStatus status)
         {
-            return default(Color);
+            color = default(Color);
+            status = default(JoyConStatus);
         }
     }
 }

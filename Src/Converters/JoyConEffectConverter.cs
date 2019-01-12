@@ -33,10 +33,5 @@ namespace JoyConsPro.Converters
                     break;
             }
         }
-
-        protected override JoyConStatus ConvertBack(Color propValue)
-        {
-            return default(JoyConStatus);
-        }
     }
 }
