@@ -3,15 +3,24 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             mc:Ignorable="d">
+             xmlns:view="clr-namespace:JoyConsPro.Views"
+             xmlns:conv="clr-namespace:JoyConsPro.Converters"
+             mc:Ignorable="d"
+             DataContext="{Binding RelativeSource={RelativeSource Self}}"
+             d:DataContext="{d:DesignInstance Type=view:JoyConSettings, IsDesignTimeCreatable=True}">
+    <UserControl.Resources>
+        <conv:TypeSettingConverter x:Key="TypeSettingConverter"/>
+        <conv:BatteryLevelConverter x:Key="BatteryLevelConverter"/>
+    </UserControl.Resources>
     <Grid>
-        <Label x:Name="LabelType" Grid.Column="0" Content="Right : " VerticalAlignment="Top" HorizontalAlignment="Left"/>
-        <TextBox x:Name="TextBoxName" TextWrapping="Wrap" Text="Name" Background="{x:Null}" BorderBrush="{x:Null}" Margin="47,4,10,0" Height="18" VerticalAlignment="Top" MouseDoubleClick="TextBoxName_MouseDoubleClick" LostFocus="TextBoxName_LostFocus" KeyDown="TextBoxName_KeyDown"/>
+        <Label x:Name="LabelType" Grid.Column="0" Content="{Binding Type, Converter={StaticResource TypeSettingConverter}}" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <TextBox x:Name="TextBoxName" TextWrapping="Wrap" Text="{Binding JoyConName}" Background="{x:Null}" BorderBrush="{x:Null}" Margin="47,4,10,0" Height="18" VerticalAlignment="Top" MouseDoubleClick="TextBoxName_MouseDoubleClick" LostFocus="TextBoxName_LostFocus" KeyDown="TextBoxName_KeyDown"/>
         <Border BorderBrush="Black" Grid.Column="0" BorderThickness="1" Margin="0,26,0,0">
             <Grid>
-                <Label Content="Battery :" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="0" Margin="5,5,0,0"/>
-                <Label x:Name="LabelBatteryLvl" Content="full" HorizontalAlignment="Left" Margin="53,5,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.231,0.615" Padding="0"/>
-                <Label Content="Gyro sens level :" HorizontalAlignment="Left" Margin="86,5,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.348,0.154" Padding="0"/>
+                <Label Content="Battery : " HorizontalAlignment="Left" VerticalAlignment="Top" Padding="0" Margin="5,5,0,0"/>
+                <TextBox x:Name="TextBoxBatteryLevel" VerticalAlignment="Top"  Focusable="False" HorizontalAlignment="Left" Margin="54,5,0,0" TextWrapping="Wrap" BorderBrush="Black" SelectionBrush="{x:Null}" FontFamily="Global Monospace" FontSize="13" FontWeight="Bold" Foreground="Black"
+                         Text="{Binding BatteryLevel, Converter={StaticResource BatteryLevelConverter}}" Background="{Binding BatteryLevel, Converter={StaticResource BatteryLevelConverter}}" />
+                <Label Content="Gyro sens lvl :" HorizontalAlignment="Left" Margin="101,5,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.348,0.154" Padding="0"/>
                 <ComboBox x:Name="ComboBoxSensLevel" Margin="178,2,8,0" VerticalAlignment="Top" Height="22">
                     <ComboBoxItem Content="1" IsSelected="True"/>
                     <ComboBoxItem Content="2" />
@@ -20,14 +29,16 @@
                 </ComboBox>
                 <Label Content="SL/SR bind :" HorizontalAlignment="Left" Margin="5,31,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.253,0.379" Padding="0"/>
                 <ComboBox x:Name="ComboBoxBindType" Margin="73,28,8,0" VerticalAlignment="Top" Height="22">
-                    <ComboBoxItem Content="Default" IsSelected="True"/>
+                    <ComboBoxItem Content="Default"/>
                     <ComboBoxItem Content="Sensitivity +/-"/>
                     <ComboBoxItem Content="Sensitivity -/+"/>
-                    <ComboBoxItem Content="Sensitivity value"/>
+                    <ComboBoxItem Content="Sensitivity/gyro value"/>
                 </ComboBox>
                 <Label Content="SL value :" HorizontalAlignment="Left" Margin="5,58,0,0" VerticalAlignment="Top" Padding="0" Grid.IsSharedSizeScope="True"/>
                 <ComboBox x:Name="ComboBoxSlSensVal" HorizontalAlignment="Left" Margin="73,55,0,0" VerticalAlignment="Top" Width="35" Height="22">
-                    <ComboBoxItem Content="1" IsSelected="True"/>
+                    <ComboBoxItem Content="-" />
+                    <ComboBoxItem Content="0" />
+                    <ComboBoxItem Content="1" />
                     <ComboBoxItem Content="2" />
                     <ComboBoxItem Content="3" />
                     <ComboBoxItem Content="4" />
@@ -35,7 +46,8 @@
                 <CheckBox x:Name="CheckBoxSlHold" Content="Hold to enable" HorizontalAlignment="Left" Margin="113,59,0,0" VerticalAlignment="Top"/>
                 <Label Content="SR value :" HorizontalAlignment="Left" Margin="5,80,0,11" Padding="0" Grid.IsSharedSizeScope="True"/>
                 <ComboBox x:Name="ComboBoxSrSensVal" HorizontalAlignment="Left" Margin="73,77,0,0" Width="35" Padding="6,3,5,5" Height="24" VerticalAlignment="Top">
-                    <ComboBoxItem Content="1" IsSelected="True"/>
+                    <ComboBoxItem Content="-" />
+                    <ComboBoxItem Content="0" />
                     <ComboBoxItem Content="2" />
                     <ComboBoxItem Content="3" />
                     <ComboBoxItem Content="4" />

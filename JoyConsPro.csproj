@@ -76,10 +76,12 @@
     </Compile>
     <Compile Include="Src\Converters\BaseConverter.cs" />
     <Compile Include="Src\Converters\BaseMultiValueConverter.cs" />
+    <Compile Include="Src\Converters\BatteryLevelConverter.cs" />
     <Compile Include="Src\Converters\JoyConBodyFillConverter.cs" />
     <Compile Include="Src\Converters\JoyConEffectConverter.cs" />
     <Compile Include="Src\Converters\JoyConOpacityConverter.cs" />
     <Compile Include="Src\Converters\ProBodyBrushConverter.cs" />
+    <Compile Include="Src\Converters\TypeSettingConverter.cs" />
     <Compile Include="Src\Views\ControllersStatusView.xaml.cs">
       <DependentUpon>ControllersStatusView.xaml</DependentUpon>
     </Compile>

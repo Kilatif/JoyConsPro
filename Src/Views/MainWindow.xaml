@@ -18,7 +18,7 @@
             </Grid.ColumnDefinitions>
             <views:JoyConSettings x:Name="SettingsLeft" Grid.Column="0" Margin="10,0" Height="134" VerticalAlignment="Top"/>
             <views:JoyConSettings x:Name="SettingsRight" Grid.Column="0" Margin="10,134,10,0" Height="133" VerticalAlignment="Top"/>
-            <views:ControllersStatusView x:Name="StatusView" Grid.Column="1" Height="289" VerticalAlignment="Top" LeftJoyConStatus="Disconnected" RightJoyConColor="Red"/>
+            <views:ControllersStatusView x:Name="StatusView" Grid.Column="1" Height="289" VerticalAlignment="Top"/>
         </Grid>
     </Grid>
 </Window>
