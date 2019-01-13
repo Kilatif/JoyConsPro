@@ -8,7 +8,8 @@
         Title="[Joy-Cons] Pro" Height="338" Width="645" Background="#FFDADADA" WindowStartupLocation="Manual" ResizeMode="NoResize">
     <Grid>
         <Menu x:Name="Menu" HorizontalAlignment="Left" Height="21" VerticalAlignment="Top" Width="639">
-            <MenuItem x:Name="MenuItemFind" Header="Find controllers" Height="21" Click="MenuItemFind_Click"/>
+            <MenuItem x:Name="MenuItemFind" Header="Find controllers" Height="21"/>
+            <MenuItem x:Name="MenuItemReset" Header="Reset controllers" Height="21"/>
             <MenuItem x:Name="MenuItemHelp" Header="Help" Height="21"/>
         </Menu>
         <Grid Margin="0,21,0,0">
@@ -16,8 +17,8 @@
                 <ColumnDefinition Width="Auto" MinWidth="246"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <views:JoyConSettings x:Name="SettingsLeft" Grid.Column="0" Margin="10,0" Height="134" VerticalAlignment="Top"/>
-            <views:JoyConSettings x:Name="SettingsRight" Grid.Column="0" Margin="10,134,10,0" Height="133" VerticalAlignment="Top"/>
+            <views:JoyConSettings x:Name="SettingsLeft" Grid.Column="0" Margin="10,0" Height="134" VerticalAlignment="Top" Status="Disconnected"/>
+            <views:JoyConSettings x:Name="SettingsRight" Grid.Column="0" Margin="10,134,10,0" Height="133" VerticalAlignment="Top" Type="Right" Status="Connected"/>
             <views:ControllersStatusView x:Name="StatusView" Grid.Column="1" Height="289" VerticalAlignment="Top"/>
         </Grid>
     </Grid>

@@ -10,27 +10,27 @@ namespace JoyConsPro.Converters
             switch (value)
             {
                 case BatteryLevel.Empty:
-                    Set("....");
+                    Set(".....");
                     Set<Brush>(new SolidColorBrush(Color.FromRgb(200, 0, 0)));
                     break;
                 case BatteryLevel.Critical:
-                    Set("----");
+                    Set("----#");
                     Set<Brush>(new SolidColorBrush(Color.FromRgb(255, 0, 0)));
                     break;
                 case BatteryLevel.Low:
-                    Set("---#");
+                    Set("---##");
                     Set<Brush>(new SolidColorBrush(Color.FromRgb(255, 128, 0)));
                     break;
                 case BatteryLevel.Medium:
-                    Set("--##");
+                    Set("--###");
                     Set<Brush>(new SolidColorBrush(Color.FromRgb(255, 255, 0)));
                     break;
                 case BatteryLevel.Full:
-                    Set("####");
+                    Set("#####");
                     Set<Brush>(new SolidColorBrush(Color.FromRgb(0, 255, 0)));
                     break;
                 default:
-                    Set("????");
+                    Set("?????");
                     Set<Brush>(new SolidColorBrush(Color.FromRgb(0, 0, 0)));
                     break;
             }

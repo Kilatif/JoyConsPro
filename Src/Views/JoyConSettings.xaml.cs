@@ -44,6 +44,15 @@ namespace JoyConsPro.Views
 
         #region Dependency Properties
 
+        public static readonly DependencyProperty StatusProperty = DependencyProperty.Register(
+            "Status", typeof(JoyConStatus), typeof(JoyConSettings), new PropertyMetadata(default(JoyConStatus)));
+
+        public JoyConStatus Status
+        {
+            get => (JoyConStatus) GetValue(StatusProperty);
+            set => SetValue(StatusProperty, value);
+        }
+
         public static readonly DependencyProperty JoyConNameProperty = DependencyProperty.Register(
             "JoyConName", typeof(string), typeof(JoyConSettings), new PropertyMetadata(DefaultJoyConName));
 
@@ -69,6 +78,15 @@ namespace JoyConsPro.Views
         {
             get => (BatteryLevel) GetValue(BatteryLevelProperty);
             set => SetValue(BatteryLevelProperty, value);
+        }
+
+        public static readonly DependencyProperty SensetivityLevelProperty = DependencyProperty.Register(
+            "SensetivityLevel", typeof(int), typeof(JoyConSettings), new PropertyMetadata(default(int)));
+
+        public int SensetivityLevel
+        {
+            get => (int) GetValue(SensetivityLevelProperty);
+            set => SetValue(SensetivityLevelProperty, value);
         }
 
         public static readonly DependencyProperty SlSrBindTypeProperty = DependencyProperty.Register(
@@ -140,7 +158,6 @@ namespace JoyConsPro.Views
         {
             TextBoxName.Focusable = false;
             TextBoxName.Background = null;
-            ChangeName(TextBoxName.Text);
         }
 
         private void TextBoxName_KeyDown(object sender, KeyEventArgs e)
@@ -150,11 +167,6 @@ namespace JoyConsPro.Views
                 TextBoxName.MoveFocus(new TraversalRequest(FocusNavigationDirection.Next));
                 Keyboard.ClearFocus();
             }
-        }
-
-        private void ChangeName(string newName)
-        {
-
         }
     }
 }
