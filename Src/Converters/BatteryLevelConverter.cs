@@ -1,4 +1,5 @@
 ﻿using System.Windows.Media;
+using JoyConsPro.ViewModels;
 using JoyConsPro.Views;
 
 namespace JoyConsPro.Converters

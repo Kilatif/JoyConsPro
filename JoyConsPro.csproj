@@ -62,7 +62,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Src\Views\JoyConSettings.xaml">
+    <Page Include="Src\Views\JoyConSettingsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -85,11 +85,14 @@
     <Compile Include="Src\Converters\SlSrBindTypeConverter.cs" />
     <Compile Include="Src\Converters\SlSrValuesEnableConverter.cs" />
     <Compile Include="Src\Converters\TypeSettingConverter.cs" />
+    <Compile Include="Src\ViewModels\ControllersStatusViewModel.cs" />
+    <Compile Include="Src\ViewModels\JoyConSettingsViewModel.cs" />
+    <Compile Include="Src\ViewModels\MainViewModel.cs" />
     <Compile Include="Src\Views\ControllersStatusView.xaml.cs">
       <DependentUpon>ControllersStatusView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Src\Views\JoyConSettings.xaml.cs">
-      <DependentUpon>JoyConSettings.xaml</DependentUpon>
+    <Compile Include="Src\Views\JoyConSettingsView.xaml.cs">
+      <DependentUpon>JoyConSettingsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Src\Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>

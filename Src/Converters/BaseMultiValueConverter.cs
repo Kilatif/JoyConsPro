@@ -46,8 +46,8 @@ namespace JoyConsPro.Converters
     {
         public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
         {
-            var valuesCheck = values?.All(value => value is TValue1 || value is TValue2 || 
-                                                   value is TValue3 || value is TValue4) ?? false;
+            var valuesCheck = values?.All(value => (value is TValue1 || value is TValue2 || 
+                                                   value is TValue3 || value is TValue4) && value != DependencyProperty.UnsetValue) ?? false;
 
             if (!valuesCheck || targetType != typeof(TProperty))
             {

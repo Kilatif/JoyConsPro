@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Globalization;
 using System.Windows.Data;
+using JoyConsPro.ViewModels;
 using JoyConsPro.Views;
 
 namespace JoyConsPro.Converters
