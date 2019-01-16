@@ -1,9 +1,15 @@
 ﻿using System.Windows;
+using JoyConsPro.Src.Commands;
+using JoyConsPro.Src.Services;
 
 namespace JoyConsPro.ViewModels
 {
     class MainViewModel : DependencyObject
     {
+        private JoyConsBtService _btService;
+
+        public FindCommand FindCommand { get; private set; }
+
         #region Dependency Properties
 
         public static readonly DependencyProperty LeftJoyConSettingsViewModelProperty = DependencyProperty.Register(
@@ -33,6 +39,15 @@ namespace JoyConsPro.ViewModels
             set => SetValue(StatusViewModelProperty, value);
         }
 
+        public static readonly DependencyProperty IsLoadingPopupVisibleProperty = DependencyProperty.Register(
+            "IsLoadingPopupVisible", typeof(bool), typeof(MainViewModel), new PropertyMetadata(default(bool)));
+
+        public bool IsLoadingPopupVisible
+        {
+            get => (bool) GetValue(IsLoadingPopupVisibleProperty);
+            set => SetValue(IsLoadingPopupVisibleProperty, value);
+        }
+
         #endregion
 
         public MainViewModel()
@@ -40,6 +55,16 @@ namespace JoyConsPro.ViewModels
             RightJoyConSettingsViewModel = new JoyConSettingsViewModel();
             LeftJoyConSettingsViewModel = new JoyConSettingsViewModel();
             StatusViewModel = new ControllersStatusViewModel();
+            FindCommand = new FindCommand(FindControllers);
+
+            _btService = new JoyConsBtService();
+        }
+
+        public async void FindControllers()
+        {
+            IsLoadingPopupVisible = true;
+            await _btService.FindControllers();
+            IsLoadingPopupVisible = false;
         }
     }
 }

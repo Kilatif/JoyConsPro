@@ -61,6 +61,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Src\Converters\PopupVisibilityConverter.cs" />
+    <Compile Include="Src\Views\SpinnerView.xaml.cs">
+      <DependentUpon>SpinnerView.xaml</DependentUpon>
+    </Compile>
     <Page Include="Src\Views\ControllersStatusView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -77,6 +81,9 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Src\Commands\FindCommand.cs" />
+    <Compile Include="Src\Commands\HelpCommand.cs" />
+    <Compile Include="Src\Commands\ResetCommand.cs" />
     <Compile Include="Src\Converters\BaseConverter.cs" />
     <Compile Include="Src\Converters\BaseMultiValueConverter.cs" />
     <Compile Include="Src\Converters\BatteryLevelConverter.cs" />
@@ -88,6 +95,7 @@
     <Compile Include="Src\Converters\SlSrBindTypeConverter.cs" />
     <Compile Include="Src\Converters\SlSrValuesEnableConverter.cs" />
     <Compile Include="Src\Converters\TypeSettingConverter.cs" />
+    <Compile Include="Src\Services\JoyConsBtService.cs" />
     <Compile Include="Src\ViewModels\ControllersStatusViewModel.cs" />
     <Compile Include="Src\ViewModels\JoyConSettingsViewModel.cs" />
     <Compile Include="Src\ViewModels\MainViewModel.cs" />
@@ -101,6 +109,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Src\Views\SpinnerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -129,5 +141,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
