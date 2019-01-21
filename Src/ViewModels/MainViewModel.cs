@@ -1,6 +1,6 @@
 ﻿using System.Windows;
+using JoyConsPro.Services.Bluetooth;
 using JoyConsPro.Src.Commands;
-using JoyConsPro.Src.Services;
 
 namespace JoyConsPro.ViewModels
 {
