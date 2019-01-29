@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using JoyConsPro.Services.Bluetooth;
+using JoyConsPro.Services.Devices;
 using JoyConsPro.Src.Commands;
 
 namespace JoyConsPro.ViewModels
@@ -7,6 +8,7 @@ namespace JoyConsPro.ViewModels
     class MainViewModel : DependencyObject
     {
         private JoyConsBtService _btService;
+        private JoyConsProDevice _joyConsProDevice;
 
         public FindCommand FindCommand { get; private set; }
 
@@ -58,6 +60,8 @@ namespace JoyConsPro.ViewModels
             FindCommand = new FindCommand(FindControllers);
 
             _btService = new JoyConsBtService();
+
+            _joyConsProDevice = new JoyConsProDevice();
         }
 
         public async void FindControllers()

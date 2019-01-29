@@ -36,6 +36,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Nefarius.ViGEm.Client, Version=1.14.3.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Nefarius.ViGEm.Client.1.14.3.1\lib\net452\Nefarius.ViGEm.Client.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -66,6 +69,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Src\Converters\PopupVisibilityConverter.cs" />
+    <Compile Include="Src\Services\Devices\JoyConsProDevice.cs" />
     <Compile Include="Src\Views\SpinnerView.xaml.cs">
       <DependentUpon>SpinnerView.xaml</DependentUpon>
     </Compile>
@@ -144,9 +148,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Properties\BluetoothManager.rd.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
